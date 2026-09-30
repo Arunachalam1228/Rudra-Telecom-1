@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudra Telecom - Reliable Connectivity for Homes & Businesses</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0052CC;
+            --primary-dark: #0041A3;
+            --primary-light: #E8F0FF;
+            --dark-bg: #0F1419;
+            --dark-text: #1A1D23;
+            --light-text: #FFFFFF;
+            --border-color: #E5E7EB;
+            --text-secondary: #6B7280;
+            --success: #10B981;
+            --error: #EF4444;
+            --accent-light: #F3F4F6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #FFFFFF;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 1.25rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+            .logo {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--dark-text);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light-text);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 82, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-light);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            padding: 5rem 2rem;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            align-items: center;
+        }
+
+        .hero-trust span {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .hero-trust span::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .hero-visual {
+            background-color: #E5E7EB;
+            border-radius: 12px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            overflow: hidden;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Get Connected Form Section */
+        .get-connected {
+            background-color: var(--accent-light);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-grid .form-group:nth-child(5),
+        .form-grid .form-group:nth-child(6),
+        .form-grid .form-group:nth-child(7),
+        .form-grid .form-group:nth-child(8),
+        .form-grid .form-group:nth-child(9) {
+            grid-column: auto;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+            font-size: 0.95rem;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group.error input,
+        .form-group.error select {
+            border-color: var(--error);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .form-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .form-submit {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .form-status {
+            display: none;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .form-status.success {
+            background-color: #D1FAE5;
+            color: #065F46;
+            display: block;
+        }
+
+        .form-status.error {
+            background-color: #FEE2E2;
+            color: #7F1D1D;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Why Rudra Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Plans Section */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .plan-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 82, 204, 0.15);
+            transform: scale(1.05);
+        }
+
+        .plan-card h3 {
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .plan-features li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .plan-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .plan-help {
+            background: var(--accent-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .plan-help h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Achievements Section */
+        .achievements-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+        }
+
+        /* Partnerships Section */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .partner-box {
+            background: var(--accent-light);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 2px dashed var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .partner-box:hover {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .partner-placeholder {
+            width: 100%;
+            height: 80px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .partner-type {
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 0.9rem;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.8;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 0.95rem;
+        }
+
+        .review-note {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark-text);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: var(--accent-light);
+        }
+
+        .faq-toggle {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--accent-light);
+        }
+
+        .faq-item.open .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1F2937 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            color: #D1D5DB;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .final-cta .btn-primary {
+            background-color: var(--primary);
+        }
+
+        .final-cta .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .final-cta .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .final-cta .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #D1D5DB;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: #D1D5DB;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 2.5rem 1.5rem;
+            }
+            .footer-content {
+                gap: 1.5rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 1rem;
+        }
+
+        .mt-3 {
+            margin-top: 1.5rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo">Rudra Telecom</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#plans">Plans</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Stay Connected. Stay Ahead.</h1>
+                <p>Reliable connectivity for homes, businesses, and growing teams. Tell us what you need, and we'll help you find the right Rudra Telecom connection.</p>
+                <div class="hero-cta">
+                    <a href="#connect" class="btn btn-primary">Get Connected</a>
+                    <a href="#plans" class="btn btn-secondary">Explore Plans</a>
+                </div>
+                <div class="hero-trust">
+                    <span>Reliable connectivity</span>
+                    <span>Flexible plans</span>
+                    <span>Customer-focused support</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div style="color: #9CA3AF;">Premium building interior</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Connected Section -->
+    <section class="get-connected" id="connect">
+        <div class="container">
+            <div class="section-header">
+                <h2>Let's Get You Connected.</h2>
+                <p>Tell us where you're located and what you need. Our team will check availability and help you choose a connection that fits your requirements.</p>
+            </div>
+
+            <form class="form-container" id="rudraForm">
+                <div class="form-status" id="formStatus"></div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                        <span class="error-message">Please enter your full name</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Mobile Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required>
+                        <span class="error-message">Please enter a valid mobile number</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com">
+                        <span class="error-message">Please enter a valid email</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location / Area</label>
+                        <input type="text" id="location" name="location" placeholder="City or area" required>
+                        <span class="error-message">Please enter your location</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pincode">PIN Code</label>
+                        <input type="text" id="pincode" name="pincode" placeholder="6-digit PIN">
+                        <span class="error-message">Please enter a valid PIN code</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="connectionType">Connection Type</label>
+                        <select id="connectionType" name="connectionType" required>
+                            <option value="">Select connection type</option>
+                            <option value="Home">Home</option>
+                            <option value="Business">Business</option>
+                            <option value="Enterprise">Enterprise</option>
+                        </select>
+                        <span class="error-message">Please select a connection type</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="users">Number of Users / Devices</label>
+                        <input type="text" id="users" name="users" placeholder="e.g., 2-3 people, 5+ devices">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preferredPlan">Preferred Plan</label>
+                        <input type="text" id="preferredPlan" name="preferredPlan" placeholder="If you have one in mind">
+                    </div>
+
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label for="requirements">Additional Requirements</label>
+                        <textarea id="requirements" name="requirements" placeholder="Any specific needs or questions?"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">Check Availability</button>
+                </div>
+
+                <div class="form-note">
+                    Not sure which connection you need? No worries. Our team can help you choose.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Why Rudra Section -->
+    <section class="why-rudra" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Rudra?</h2>
+                <p>Good connectivity should simply work. We focus on reliable service, straightforward plans, and support you can reach when you need it.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Reliable Connectivity</h3>
+                    <p>Stay connected with dependable network solutions built around your everyday needs.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Plans That Fit</h3>
+                    <p>Choose a plan based on how you actually use your connection — not what you don't need.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Support When You Need It</h3>
+                    <p>Our team is here to help with questions, installation, and service-related issues.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Built for Growth</h3>
+                    <p>From a single home connection to a growing business, our solutions can scale with your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans-section" id="plans">
+        <div class="container">
+            <div class="section-header">
+                <h2>Plans Built Around Your Needs</h2>
+                <p>Whether you're streaming at home, working with a team, or managing a growing business, choose a connection that fits the way you work and live.</p>
+            </div>
+
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <h3>For Home</h3>
+                    <p>For everyday browsing, entertainment, online classes, work from home, and multiple connected devices.</p>
+                    <ul class="plan-features">
+                        <li>High-speed internet</li>
+                        <li>Multiple-device connectivity</li>
+                        <li>Streaming and entertainment</li>
+                        <li>Online classes</li>
+                        <li>Work from home</li>
+                        <li>Customer support</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-sm">View Home Plans</button>
+                </div>
+
+                <div class="plan-card featured">
+                    <h3>For Business</h3>
+                    <p>For teams that depend on a stable connection to keep their work moving.</p>
+                    <ul class="plan-features">
+                        <li>Business-grade connectivity</li>
+                        <li>Strong upload performance</li>
+                        <li>Static IP options</li>
+                        <li>Reliable network access</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <button class="btn btn-primary btn-sm">Explore Business Plans</button>
+                </div>
+
+                <div class="plan-card">
+                    <h3>For Enterprise</h3>
+                    <p>Connectivity solutions for businesses with larger and more demanding network requirements.</p>
+                    <ul class="plan-features">
+                        <li>Dedicated connectivity</li>
+                        <li>Scalable bandwidth</li>
+                        <li>Multi-location connectivity</li>
+                        <li>Network solutions</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                    <button class="btn btn-secondary btn-sm">Talk to Our Team</button>
+                </div>
+            </div>
+
+            <div class="plan-help">
+                <h3>Not sure which plan is right for you?</h3>
+                <p>Tell us how you use the internet, how many people need access, and what matters most to you. We'll help you find a suitable option.</p>
+                <button class="btn btn-primary mt-2">Find My Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+        <div class="container">
+            <div class="section-header">
+                <h2>Growing With Every Connection</h2>
+                <p>Over the years, we've grown one connection at a time — serving homes, businesses, and communities with reliable telecom solutions. Every milestone reflects the trust our customers have placed in us.</p>
+            </div>
+
+            <div class="achievements-stats">
+                <div class="stat-box">
+                    <div class="stat-number">XX+</div>
+                    <div class="stat-label">Customers Connected</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">XX+</div>
+                    <div class="stat-label">Locations Served</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">XX+</div>
+                    <div class="stat-label">Years of Service</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">XX+</div>
+                    <div class="stat-label">Business Connections</div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 2rem;">Our Journey</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">20XX</div>
+                    <div class="timeline-content">
+                        <p>Rudra Telecom begins its journey with a focus on reliable connectivity.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">20XX</div>
+                    <div class="timeline-content">
+                        <p>Network coverage expands to serve more customers and communities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">20XX</div>
+                    <div class="timeline-content">
+                        <p>Business connectivity solutions are introduced for growing teams.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">20XX</div>
+                    <div class="timeline-content">
+                        <p>Network infrastructure and service capabilities continue to expand.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">
+                        <p>Continuing to build a reliable, customer-focused telecom network.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnerships Section -->
+    <section class="partnerships">
+        <div class="container">
+            <div class="section-header">
+                <h2>Strong Connections Start With Strong Partnerships</h2>
+                <p>Behind every reliable connection is a network of people, technology, infrastructure, and trusted partners working together.</p>
+            </div>
+
+            <div class="partners-grid">
+                <div class="partner-box">
+                    <div class="partner-placeholder">Partner Logo 01</div>
+                    <div class="partner-type">Technology Partner</div>
+                </div>
+                <div class="partner-box">
+                    <div class="partner-placeholder">Partner Logo 02</div>
+                    <div class="partner-type">Infrastructure Partner</div>
+                </div>
+                <div class="partner-box">
+                    <div class="partner-placeholder">Partner Logo 03</div>
+                    <div class="partner-type">Network Partner</div>
+                </div>
+                <div class="partner-box">
+                    <div class="partner-placeholder">Partner Logo 04</div>
+                    <div class="partner-type">Enterprise Partner</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>We're proud of the relationships we build with the people and businesses we serve.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p class="review-text">"The installation was quick, and the team explained everything clearly. We've had a good experience with Rudra so far."</p>
+                    <div class="review-author">— Customer Name</div>
+                    <div class="review-note">Placeholder testimonial</div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"We needed a reliable connection for our office, and Rudra helped us choose a setup that suited our requirements."</p>
+                    <div class="review-author">— Customer Name</div>
+                    <div class="review-note">Placeholder testimonial</div>
+                </div>
+
+                <div class="review-card">
+                    <p class="review-text">"Whenever we had an issue, the support team was easy to reach and helped us get it sorted."</p>
+                    <div class="review-author">— Customer Name</div>
+                    <div class="review-note">Placeholder testimonial</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Got Questions? We've Got Answers.</h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item open">
+                    <div class="faq-question">
+                        <span>How do I get a Rudra Telecom connection?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Simply share your name, phone number, and location through our connection form. Our team will check availability and get in touch with you.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I know which plan is right for me?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It depends on how you use your connection. Tell us the number of users, your typical usage, and whether it's for home or business. We'll help you choose a suitable plan.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is Rudra Telecom available in my area?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Enter your location or PIN code in the connection form, and our team can check availability in your area.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does installation take?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Installation time depends on your location and the availability of the required infrastructure. Our team will confirm the expected timeline when processing your request.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I upgrade my plan later?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, depending on the available plans and your location. Contact our team and we'll help you choose an upgrade.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide business connections?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. We offer connectivity solutions for businesses with different requirements, including options for growing teams and enterprise users.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What should I do if I face a connection issue?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Contact our support team with your registered details and we'll help you troubleshoot the issue and get you back online.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Your Connection. Our Commitment.</h2>
+            <p>Whether you're connecting your home, your team, or your business, we're here to make staying connected simple.</p>
+            <div class="final-cta-buttons">
+                <a href="#connect" class="btn btn-primary">Get Connected</a>
+                <button class="btn btn-secondary">Talk to Our Team</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Rudra Telecom</h4>
+                    <p>Reliable connectivity for homes, businesses, and growing teams.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                        <li><a href="#partnerships">Partnerships</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#plans">Home Connectivity</a></li>
+                        <li><a href="#plans">Business Connectivity</a></li>
+                        <li><a href="#plans">Enterprise Solutions</a></li>
+                        <li><a href="#plans">Plans</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#connect">Customer Support</a></li>
+                        <li><a href="#connect">Check Availability</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+                    <p><strong>Email:</strong> <a href="mailto:hello@rudratelecom.com">hello@rudratelecom.com</a></p>
+                    <p><strong>Location:</strong> [Location]</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Rudra Telecom. All rights reserved.</div>
+                <div>
+                    <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Google Apps Script URL
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwE-9R5n0LObxu4XEx9ioP7WOtJyj5xOcozwb4SlISPna95aszoQSKuVlw_9Q9RBkD2/exec";
+
+        // Form handling
+        const form = document.getElementById("rudraForm");
+        const formStatus = document.getElementById("formStatus");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Reset status
+            formStatus.className = "form-status";
+            formStatus.textContent = "";
+
+            // Validate form
+            if (!validateForm()) {
+                return;
+            }
+
+            // Get form data
+            const formData = {
+                name: document.getElementById("name").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                phone: document.getElementById("phone").value.trim(),
+                location: document.getElementById("location").value.trim(),
+                pincode: document.getElementById("pincode").value.trim(),
+                connectionType: document.getElementById("connectionType").value,
+                users: document.getElementById("users").value.trim(),
+                preferredPlan: document.getElementById("preferredPlan").value.trim(),
+                requirements: document.getElementById("requirements").value.trim()
+            };
+
+            // Submit form
+            submitForm(formData);
+        });
+
+        function validateForm() {
+            let isValid = true;
+            const nameField = document.getElementById("name").parentElement;
+            const phoneField = document.getElementById("phone").parentElement;
+            const emailField = document.getElementById("email").parentElement;
+            const locationField = document.getElementById("location").parentElement;
+            const connectionTypeField = document.getElementById("connectionType").parentElement;
+
+            // Clear previous errors
+            document.querySelectorAll(".form-group").forEach(group => {
+                group.classList.remove("error");
+            });
+
+            // Validate name
+            const name = document.getElementById("name").value.trim();
+            if (!name) {
+                nameField.classList.add("error");
+                isValid = false;
+            }
+
+            // Validate phone
+            const phone = document.getElementById("phone").value.trim();
+            if (!phone || phone.length < 10) {
+                phoneField.classList.add("error");
+                isValid = false;
+            }
+
+            // Validate email if provided
+            const email = document.getElementById("email").value.trim();
+            if (email && !isValidEmail(email)) {
+                emailField.classList.add("error");
+                isValid = false;
+            }
+
+            // Validate location
+            const location = document.getElementById("location").value.trim();
+            if (!location) {
+                locationField.classList.add("error");
+                isValid = false;
+            }
+
+            // Validate connection type
+            const connectionType = document.getElementById("connectionType").value;
+            if (!connectionType) {
+                connectionTypeField.classList.add("error");
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function submitForm(data) {
+            const url = SCRIPT_URL + "?" + new URLSearchParams(data);
+
+            fetch(url, {
+                method: "GET",
+                mode: "no-cors"
+            })
+            .then(() => showSuccess())
+            .catch(() => showError());
+        }
+
+        function showSuccess() {
+            formStatus.className = "form-status success";
+            formStatus.textContent = "✓ Thank you! We've received your information. Our team will reach out to you soon to check availability and discuss the best plan for your needs.";
+            form.reset();
+            
+            // Clear form status after 5 seconds
+            setTimeout(() => {
+                formStatus.className = "form-status";
+                formStatus.textContent = "";
+            }, 6000);
+        }
+
+        function showError() {
+            formStatus.className = "form-status error";
+            formStatus.textContent = "✗ We encountered an issue. Please try again or contact our team directly.";
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll(".faq-question").forEach(question => {
+            question.addEventListener("click", function() {
+                const faqItem = this.parentElement;
+                
+                // Close all other items
+                document.querySelectorAll(".faq-item").forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove("open");
+                    }
+                });
+
+                // Toggle current item
+                faqItem.classList.toggle("open");
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function(e) {
+                const href = this.getAttribute("href");
+                if (href !== "#" && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
